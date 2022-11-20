@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<title> QR Code Generator </title> <!--Kaakitha kappal-->
+	<link rel="icon" type="image/x-icon" href="favicon.ico">
+	<link rel="stylesheet" type="text/css" href="qrstyle.css">
+	<script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
+
+</head>
+
+<body>
+	<br><br>
+	<div class="hi">
+		<p align="center"> Hi, Friends. Welcome here. <img src="wave-hand.gif" alt="hi" width="2%" height="2%"> </p>
+		<p align="center"> This is a page for users to convert a link or words or sentences of any language into a QRCode. </p>
+		<p align="center"> It's free for all users. Hope it's helpful.</p>
+	</div>
+
+	<div class="form">
+		<h1> QR Code Generator </h1>
+		<form>
+			<input type="url" id="web" name="web" placeholder="Enter the URL/value to convert" required/>
+			<div id="qrcode" class="qrcode">
+				<div id="qrcode-container" class="qrcode-container" style="padding: 16px; margin-bottom: 32px; margin-top: 30px;"></div>
+				<!-- Made by Gokul Ananth -->
+			</div> <br>
+			<button type="button" onclick="GenerateCode()"><i class="fa fa-play-circle"></i> Generate </button>
+			<button class="btn" onclick="alertuser()"><i class="fa fa-refresh"></i>  New Link </button>
+		</form>
+	</div>
+
+	<p align="center" style="color:#BE9B00;" id="copyrights"><strong> &copy; GOKUL ANANTH M || 20-11-2022 || <a href="https://www.instagram.com/_kaakitha_kappal_08/" target="_blank" style="color:#BE9B00; text-decoration:none;"> KAAKITHA KAPPAL </a></strong></p>
+
+	<script> 
+		function GenerateCode(){
+			let name = document.getElementById("web").value;
+			if(name) {
+				let qrcodeContainer = document.getElementById("qrcode");
+				qrcodeContainer.innerHTML = "";
+				// Gokul Ananth
+				new QRCode(qrcodeContainer, name);
+				document.getElementById("qrcode-container").style.display = "block";
+			}
+			else{
+				alert("Please enter a valid input");
+			}
+		}
+
+		function alertuser(){
+			alert("Wait a minute... Reloading...");
+			window.location.reload(); 
+		}
+	</script>
+
+</body>
+</html>
